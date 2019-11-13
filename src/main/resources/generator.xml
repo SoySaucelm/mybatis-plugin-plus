@@ -8,7 +8,10 @@
     <properties resource="conf/generator.properties"/>
     <!--pom已经依赖可以注释-->
     <!--<classPathEntry location="D:xx.jar"/>-->
-    <context id="mssqlTables" targetRuntime="MyBatis3Simple">
+
+    <context id="myqlTables" targetRuntime="MyBatis3Simple">
+
+
         <!--实体实现Serializable接口 -->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <!-- 通用mapper插件 -->
@@ -16,7 +19,7 @@
             <property name="mappers" value="${mapper.Mapper}"/>
         </plugin>
         <!-- 实体使用lombok注解 -->
-        <plugin type="com.ezfun.plugin.LombokPlugin">
+        <plugin type="com.github.soysaucelm.plugin.LombokPlugin">
             <property name="builder" value="true"/>
             <property name="allArgsConstructor" value="true"/>
             <property name="noArgsConstructor" value="true"/>
@@ -24,15 +27,17 @@
         </plugin>
 
         <!--xml覆盖-->
-        <plugin type="com.ezfun.plugin.OverIsMergeablePlugin"/>
+        <plugin type="com.github.soysaucelm.plugin.OverIsMergeablePlugin"/>
 
+
+        <plugin type="com.github.soysaucelm.plugin.CommentPlugin"/>
         <!-- 使用自定义的CommentGenerator -->
         <!-- 这里的type里写的是你的实现类的类全路径 -->
-        <!--<commentGenerator type="com.ezfun.plugin.MyCommentGenerator"/>-->
+        <!--<commentGenerator type="com.github.soysaucelm.plugin.MyCommentGenerator" />-->
 
         <!-- 去除自动生成的注释 -->
-        <commentGenerator>
-        <property name="suppressAllComments" value="true"/>
+        <commentGenerator type="com.github.soysaucelm.plugin.MyCommentGenerator">
+            <property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
         <jdbcConnection driverClass="${jdbc.driverClass}"
@@ -46,7 +51,7 @@
         </javaTypeResolver>
 
         <!-- targetProject:自动生成代码的位置 -->
-        <javaModelGenerator targetPackage="com.ezfun.plugin.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.github.soysaucelm.plugin.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -54,7 +59,7 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ezfun.plugin.mapper" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.github.soysaucelm.plugin.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
@@ -63,4 +68,5 @@
         </table>
 
     </context>
+
 </generatorConfiguration>

@@ -1,4 +1,4 @@
-package com.ezfun.plugin;
+package com.github.soysaucelm.plugin;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -16,7 +16,7 @@ import static org.mybatis.generator.internal.util.StringUtility.isTrue;
 
 /**
  * @author SoySauce
- * @date 2019/5/15
+ * @since 2019/5/15
  */
 public class MyCommentGenerator extends DefaultCommentGenerator {
     private Properties properties;

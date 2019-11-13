@@ -1,4 +1,4 @@
-package com.ezfun.plugin;
+package com.github.soysaucelm.plugin;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.api.ProgressCallback;
@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * @author SoySauce
- * @date 2019/5/15
+ * @since 2019/5/15
  */
 public class GeneratorUtil {
 
